@@ -28,7 +28,6 @@ Cada proyecto está estructurado para practicar:
 | **Módulo 2** – CRUD con DTOs | 5 | Mapeo DTO ↔ entidad, separación de capas |
 | **Módulo 3** – CRUD con relaciones | 5 | Relaciones entre entidades, cascadas, lazy/eager loading |
 | **Módulo 4** – CRUD con relaciones + DTOs | 5 | Relaciones avanzadas, validaciones complejas, buenas prácticas |
-| **Módulo 5** – Proyectos robustos | 5 | Tests unitarios e integración, preparación para Spring Security |
 
 > Cada proyecto incluye una **carpeta `working`** (para que lo trabajes por tu cuenta) y una **carpeta `solution`** (implementación completa con explicaciones).
 
