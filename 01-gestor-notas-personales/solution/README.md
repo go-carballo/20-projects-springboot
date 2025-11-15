@@ -12,6 +12,13 @@ Se buscó que el proyecto fuera **autocontenido**, sin relaciones ni DTOs, pero 
 
 ---
 
+## Pruebas en POSTMAN
+<p align="center"> <img src="././assets/01-gestor-notas-personales/post.png" alt="POST" width="350" /> </p>
+<p align="center"> <img src="./assets/logoo.png" alt="PUT" width="350" /> </p>
+<p align="center"> <img src="./assets/logoo.png" alt="GET" width="350" /> </p>
+<p align="center"> <img src="./assets/logoo.png" alt="GET BY ID" width="350" /> </p>
+<p align="center"> <img src="./assets/logoo.png" alt="DELETE" width="350" /> </p>
+<p align="center"> <img src="./assets/logoo.png" alt="ERRORS" width="350" /> </p>
 ## Arquitectura y diseño
 
 - **Arquitectura en capas:**  
