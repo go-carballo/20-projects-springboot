@@ -13,12 +13,13 @@ Se buscó que el proyecto fuera **autocontenido**, sin relaciones ni DTOs, pero 
 ---
 
 ## Pruebas en POSTMAN
-![Texto alternativo](../assets/post.png)
-<p align="center"> <img src="./assets/logoo.png" alt="PUT" width="350" /> </p>
-<p align="center"> <img src="./assets/logoo.png" alt="GET" width="350" /> </p>
-<p align="center"> <img src="./assets/logoo.png" alt="GET BY ID" width="350" /> </p>
-<p align="center"> <img src="./assets/logoo.png" alt="DELETE" width="350" /> </p>
-<p align="center"> <img src="./assets/logoo.png" alt="ERRORS" width="350" /> </p>
+![POST](../assets/post.png)
+![PUT](../assets/put.png)
+![GET](../assets/getAll.png)
+![GETBYID](../assets/getById.png)
+![DELETE](../assets/delete.png)
+![ERROR](../assets/noteNotFound.png)
+
 ## Arquitectura y diseño
 
 - **Arquitectura en capas:**  
