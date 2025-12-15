@@ -3,6 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/notas
     username: postgres
     password: admin
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -10,5 +11,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# BONUS: Configuración de logging
+logging:
+  level:
+    com.payoyo.gestor_notas_personales: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+
 server:
   port: 8080
