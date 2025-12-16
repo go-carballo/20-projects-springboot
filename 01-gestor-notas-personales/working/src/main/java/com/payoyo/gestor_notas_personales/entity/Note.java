@@ -3,10 +3,9 @@ package com.payoyo.gestor_notas_personales.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -21,6 +20,7 @@ import java.time.LocalDateTime;
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotBlank(message = "El título es obligatorio")
@@ -33,12 +33,12 @@ public class Note {
     @Column(nullable = false, length = 1000)
     private String content;
 
-    @CreatedDate
+    @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     // BONUS: Campo que se actualiza automáticamente
-    @LastModifiedDate
+    @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime lastModified;
 }
