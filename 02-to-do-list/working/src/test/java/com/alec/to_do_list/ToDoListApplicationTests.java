@@ -1,4 +1,4 @@
-package com.payoyo.to_do_list;
+package com.alec.to_do_list;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

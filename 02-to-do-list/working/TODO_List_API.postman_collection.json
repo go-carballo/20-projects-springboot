@@ -1,0 +1,770 @@
+{
+	"info": {
+		"_postman_id": "12345678-1234-1234-1234-123456789012",
+		"name": "TODO List API - Spring Boot",
+		"description": "API REST para gestión de tareas (TODO List) desarrollada con Spring Boot. Permite crear, leer, actualizar y eliminar tareas, así como filtrarlas por estado, prioridad y fechas.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CRUD Básico",
+			"item": [
+				{
+					"name": "1. Crear Tarea - Alta Prioridad",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Estudiar Spring Boot\",\n  \"description\": \"Repasar conceptos de IoC, DI y configuración de Spring\",\n  \"status\": \"PENDING\",\n  \"priority\": \"HIGH\",\n  \"dueDate\": \"2025-11-22\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "2. Crear Tarea - Media Prioridad",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Desarrollar API REST\",\n  \"description\": \"Implementar endpoints CRUD para la gestión de tareas\",\n  \"status\": \"IN_PROGRESS\",\n  \"priority\": \"MEDIUM\",\n  \"dueDate\": \"2025-11-20\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "3. Crear Tarea - Baja Prioridad",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Documentar proyecto\",\n  \"description\": \"Crear README con instrucciones de uso y ejemplos\",\n  \"status\": \"PENDING\",\n  \"priority\": \"LOW\",\n  \"dueDate\": \"2025-11-25\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "4. Crear Tarea - Completada",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Configurar base de datos\",\n  \"description\": \"Instalar PostgreSQL y crear esquema inicial\",\n  \"status\": \"COMPLETED\",\n  \"priority\": \"HIGH\",\n  \"dueDate\": \"2025-11-10\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "5. Crear Tarea - Vencida",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Revisar código legacy\",\n  \"description\": \"Refactorizar módulo de autenticación\",\n  \"status\": \"PENDING\",\n  \"priority\": \"MEDIUM\",\n  \"dueDate\": \"2025-11-05\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "Obtener Todas las Tareas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "Obtener Tarea por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Actualizar Tarea",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Estudiar Spring Boot - ACTUALIZADO\",\n  \"description\": \"Incluir Spring Data JPA y Spring Security\",\n  \"status\": \"IN_PROGRESS\",\n  \"priority\": \"HIGH\",\n  \"dueDate\": \"2025-11-25\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Eliminar Tarea",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Filtros",
+			"item": [
+				{
+					"name": "Filtrar por Estado - PENDING",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/status/PENDING",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"status",
+								"PENDING"
+							]
+						}
+					}
+				},
+				{
+					"name": "Filtrar por Estado - IN_PROGRESS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/status/IN_PROGRESS",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"status",
+								"IN_PROGRESS"
+							]
+						}
+					}
+				},
+				{
+					"name": "Filtrar por Estado - COMPLETED",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/status/COMPLETED",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"status",
+								"COMPLETED"
+							]
+						}
+					}
+				},
+				{
+					"name": "Filtrar por Prioridad - HIGH",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/priority/HIGH",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"priority",
+								"HIGH"
+							]
+						}
+					}
+				},
+				{
+					"name": "Filtrar por Prioridad - MEDIUM",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/priority/MEDIUM",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"priority",
+								"MEDIUM"
+							]
+						}
+					}
+				},
+				{
+					"name": "Filtrar por Prioridad - LOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/priority/LOW",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"priority",
+								"LOW"
+							]
+						}
+					}
+				},
+				{
+					"name": "Filtro Combinado - PENDING y LOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/filter?status=PENDING&priority=LOW",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								},
+								{
+									"key": "priority",
+									"value": "LOW"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Filtro Combinado - IN_PROGRESS y HIGH",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/filter?status=IN_PROGRESS&priority=HIGH",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "IN_PROGRESS"
+								},
+								{
+									"key": "priority",
+									"value": "HIGH"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Búsquedas por Fechas",
+			"item": [
+				{
+					"name": "Búsqueda por Rango de Fechas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/due-date-range?startDate=2025-11-15&endDate=2025-11-22",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"due-date-range"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-11-15"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-11-22"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Obtener Tareas Vencidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/overdue",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"overdue"
+							]
+						}
+					}
+				},
+				{
+					"name": "Obtener Tareas que Vencen Hoy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/due-today",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"due-today"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Búsqueda por Texto",
+			"item": [
+				{
+					"name": "Buscar por 'documentar'",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/search?term=documentar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"search"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "documentar"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Buscar por 'Spring'",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/search?term=Spring",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"search"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "Spring"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Buscar por 'API'",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/search?term=API",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"search"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "API"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "BONUS Endpoints",
+			"item": [
+				{
+					"name": "Contar Tareas PENDING",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/count/status/PENDING",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"count",
+								"status",
+								"PENDING"
+							]
+						}
+					}
+				},
+				{
+					"name": "Contar Tareas IN_PROGRESS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/count/status/IN_PROGRESS",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"count",
+								"status",
+								"IN_PROGRESS"
+							]
+						}
+					}
+				},
+				{
+					"name": "Contar Tareas COMPLETED",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/count/status/COMPLETED",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"count",
+								"status",
+								"COMPLETED"
+							]
+						}
+					}
+				},
+				{
+					"name": "Marcar como En Progreso",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/2/in-progress",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"2",
+								"in-progress"
+							]
+						}
+					}
+				},
+				{
+					"name": "Marcar como Completada",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/2/complete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"2",
+								"complete"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Casos de Error",
+			"item": [
+				{
+					"name": "ERROR - Título vacío",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"\",\n  \"description\": \"Descripción válida\",\n  \"status\": \"PENDING\",\n  \"priority\": \"HIGH\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "ERROR - Estado nulo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Tarea válida\",\n  \"description\": \"Descripción válida\",\n  \"status\": null,\n  \"priority\": \"HIGH\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					}
+				},
+				{
+					"name": "ERROR - Tarea no encontrada",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"999"
+							]
+						}
+					}
+				},
+				{
+					"name": "ERROR - Status inválido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/status/INVALID_STATUS",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"status",
+								"INVALID_STATUS"
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8082",
+			"type": "string"
+		}
+	]
+}

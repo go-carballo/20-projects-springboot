@@ -1,4 +1,4 @@
-package com.payoyo.to_do_list;
+package com.alec.to_do_list;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
