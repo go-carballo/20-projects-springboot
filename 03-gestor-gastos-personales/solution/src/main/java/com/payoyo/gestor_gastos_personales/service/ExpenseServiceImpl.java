@@ -267,7 +267,7 @@ public class ExpenseServiceImpl implements ExpenseService{
         LocalDate startOfMonth = now.withDayOfMonth(1);
         LocalDate endOfMonth = now.withDayOfMonth(now.lengthOfMonth());
         
-        // Obtener gastos del mes actual
+        // Obtener gastos del mes actual  00 .
         List<Expense> monthExpenses = expenseRepository.findByDateBetweenOrderByDateDesc(
                 startOfMonth, 
                 endOfMonth

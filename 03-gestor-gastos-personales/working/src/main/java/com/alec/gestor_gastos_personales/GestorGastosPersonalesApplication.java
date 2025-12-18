@@ -1,4 +1,4 @@
-package com.payoyo.gestor_gastos_personales;
+package com.alec.gestor_gastos_personales;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

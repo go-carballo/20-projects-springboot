@@ -1,4 +1,4 @@
-package com.payoyo.gestor_gastos_personales;
+package com.alec.gestor_gastos_personales;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
