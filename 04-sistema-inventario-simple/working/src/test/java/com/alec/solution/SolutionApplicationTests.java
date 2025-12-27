@@ -1,4 +1,4 @@
-package com.payoyo.solution;
+package com.alec.solution;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
