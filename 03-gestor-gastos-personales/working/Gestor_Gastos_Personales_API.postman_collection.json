@@ -1,0 +1,620 @@
+{
+	"info": {
+		"_postman_id": "gestor-gastos-personales-001",
+		"name": "Gestor Gastos Personales API",
+		"description": "Colección completa de endpoints para la API de gestión de gastos personales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CRUD Básico",
+			"item": [
+				{
+					"name": "1. Crear Gasto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Almuerzo en restaurante\",\n  \"amount\": 25.50,\n  \"category\": \"FOOD\",\n  \"date\": \"2024-12-15\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Obtener Todos los Gastos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Obtener Gasto por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Actualizar Gasto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Almuerzo en restaurante (actualizado)\",\n  \"amount\": 30.00,\n  \"category\": \"FOOD\",\n  \"date\": \"2024-12-15\",\n  \"paymentMethod\": \"DEBIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Eliminar Gasto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Filtros y Consultas",
+			"item": [
+				{
+					"name": "6. Filtrar por Categoría - FOOD",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/category/FOOD",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "category", "FOOD"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Filtrar por Categoría - TRANSPORT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/category/TRANSPORT",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "category", "TRANSPORT"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Filtrar por Categoría - ENTERTAINMENT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/category/ENTERTAINMENT",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "category", "ENTERTAINMENT"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7. Filtrar por Rango de Fechas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/between?startDate=2024-12-01&endDate=2024-12-31",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "between"],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2024-12-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8. Filtrar por Método de Pago - CREDIT_CARD",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/payment-method/CREDIT_CARD",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "payment-method", "CREDIT_CARD"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8. Filtrar por Método de Pago - CASH",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/payment-method/CASH",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "payment-method", "CASH"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Datos de Prueba",
+			"item": [
+				{
+					"name": "Crear Gasto - FOOD 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Supermercado semanal\",\n  \"amount\": 125.80,\n  \"category\": \"FOOD\",\n  \"date\": \"2024-12-10\",\n  \"paymentMethod\": \"DEBIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - TRANSPORT 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Recarga tarjeta de transporte\",\n  \"amount\": 50.00,\n  \"category\": \"TRANSPORT\",\n  \"date\": \"2024-12-12\",\n  \"paymentMethod\": \"CASH\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - ENTERTAINMENT 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Entrada al cine\",\n  \"amount\": 15.50,\n  \"category\": \"ENTERTAINMENT\",\n  \"date\": \"2024-12-13\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - HEALTH 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Consulta médica\",\n  \"amount\": 80.00,\n  \"category\": \"HEALTH\",\n  \"date\": \"2024-12-14\",\n  \"paymentMethod\": \"BANK_TRANSFER\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - EDUCATION 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Curso online de programación\",\n  \"amount\": 199.99,\n  \"category\": \"EDUCATION\",\n  \"date\": \"2024-12-15\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - UTILITIES 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Factura de luz\",\n  \"amount\": 75.30,\n  \"category\": \"UTILITIES\",\n  \"date\": \"2024-12-05\",\n  \"paymentMethod\": \"BANK_TRANSFER\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - SHOPPING 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Ropa de invierno\",\n  \"amount\": 150.00,\n  \"category\": \"SHOPPING\",\n  \"date\": \"2024-12-08\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - OTHER 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Donación a beneficencia\",\n  \"amount\": 50.00,\n  \"category\": \"OTHER\",\n  \"date\": \"2024-12-16\",\n  \"paymentMethod\": \"DIGITAL_WALLET\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - FOOD 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Cena en pizzería\",\n  \"amount\": 45.00,\n  \"category\": \"FOOD\",\n  \"date\": \"2024-12-17\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Gasto - TRANSPORT 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Uber al aeropuerto\",\n  \"amount\": 35.50,\n  \"category\": \"TRANSPORT\",\n  \"date\": \"2024-12-11\",\n  \"paymentMethod\": \"DIGITAL_WALLET\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validaciones - Casos de Error",
+			"item": [
+				{
+					"name": "Error - Monto Negativo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Gasto con monto negativo\",\n  \"amount\": -25.50,\n  \"category\": \"FOOD\",\n  \"date\": \"2024-12-15\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error - Fecha Futura",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Gasto con fecha futura\",\n  \"amount\": 25.50,\n  \"category\": \"FOOD\",\n  \"date\": \"2025-12-31\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error - Descripción Vacía",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"\",\n  \"amount\": 25.50,\n  \"category\": \"FOOD\",\n  \"date\": \"2024-12-15\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error - Descripción Muy Corta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"AB\",\n  \"amount\": 25.50,\n  \"category\": \"FOOD\",\n  \"date\": \"2024-12-15\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error - Campo Nulo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Gasto sin categoría\",\n  \"amount\": 25.50,\n  \"date\": \"2024-12-15\",\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error - ID No Existe (GET)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/999",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "999"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error - ID No Existe (DELETE)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/999",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "999"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
