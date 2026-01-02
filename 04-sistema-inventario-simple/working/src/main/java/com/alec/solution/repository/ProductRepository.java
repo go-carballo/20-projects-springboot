@@ -45,7 +45,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
      * Busca productos activos con stock bajo (cantidad < stockMinimo).
      */
     @Query("SELECT p FROM Product p WHERE p.cantidad < p.stockMinimo AND p.activo = true")
-    List<Product> findProductsWithLowStock();
+    Page<Product> findProductsWithLowStock(Pageable pageable);
 
     /**
      * Busca productos activos dentro de un rango de precios con paginación.

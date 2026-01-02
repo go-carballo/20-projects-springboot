@@ -1,5 +1,6 @@
 package com.alec.solution.service;
 
+import com.alec.solution.dto.ProductUpdateRequest;
 import com.alec.solution.entity.Categoria;
 import com.alec.solution.entity.MovimientoStock;
 import com.alec.solution.entity.Product;
@@ -181,30 +182,33 @@ class ProductServiceTest {
         @Test
         @DisplayName("Debe actualizar producto correctamente")
         void debeActualizarProductoCorrectamente() {
-            Product productDetails = Product.builder()
-                    .nombre("Laptop HP Actualizada")
-                    .descripcion("Nueva descripción")
-                    .stockMinimo(15)
-                    .precio(new BigDecimal("1499.99"))
-                    .categoria(Categoria.ELECTRONICA)
-                    .build();
+            ProductUpdateRequest updateRequest = new ProductUpdateRequest(
+                    "Laptop HP Actualizada",
+                    "Nueva descripcion",
+                    15,
+                    new BigDecimal("1499.99"),
+                    Categoria.ELECTRONICA
+            );
 
             when(productRepository.findById(1L)).thenReturn(Optional.of(testProduct));
             when(productRepository.save(any(Product.class))).thenAnswer(i -> i.getArgument(0));
 
-            Product result = productService.actualizar(1L, productDetails);
+            Product result = productService.actualizar(1L, updateRequest);
 
             assertThat(result.getNombre()).isEqualTo("Laptop HP Actualizada");
-            assertThat(result.getDescripcion()).isEqualTo("Nueva descripción");
+            assertThat(result.getDescripcion()).isEqualTo("Nueva descripcion");
             assertThat(result.getPrecio()).isEqualByComparingTo("1499.99");
         }
 
         @Test
-        @DisplayName("Debe lanzar excepción cuando producto no existe")
+        @DisplayName("Debe lanzar excepcion cuando producto no existe")
         void debeLanzarExcepcionCuandoProductoNoExiste() {
+            ProductUpdateRequest updateRequest = new ProductUpdateRequest(
+                    "Test", "Test", 10, new BigDecimal("100"), Categoria.OTROS
+            );
             when(productRepository.findById(999L)).thenReturn(Optional.empty());
 
-            assertThatThrownBy(() -> productService.actualizar(999L, testProduct))
+            assertThatThrownBy(() -> productService.actualizar(999L, updateRequest))
                     .isInstanceOf(ProductService.ProductoNoEncontradoException.class);
         }
     }

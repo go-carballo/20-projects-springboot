@@ -1,5 +1,6 @@
 package com.alec.solution.service;
 
+import com.alec.solution.dto.ProductUpdateRequest;
 import com.alec.solution.entity.Categoria;
 import com.alec.solution.entity.MovimientoStock;
 import com.alec.solution.entity.Product;
@@ -16,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -60,16 +60,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @CacheEvict(value = {"productos", "productosLowStock"}, allEntries = true)
-    public Product actualizar(Long id, Product productDetails) {
+    public Product actualizar(Long id, ProductUpdateRequest productDetails) {
         Product product = productRepository.findById(id)
                 .filter(Product::getActivo)
                 .orElseThrow(() -> new ProductoNoEncontradoException("Producto con ID " + id + " no encontrado"));
 
-        product.setNombre(productDetails.getNombre());
-        product.setDescripcion(productDetails.getDescripcion());
-        product.setStockMinimo(productDetails.getStockMinimo());
-        product.setPrecio(productDetails.getPrecio());
-        product.setCategoria(productDetails.getCategoria());
+        product.setNombre(productDetails.nombre());
+        product.setDescripcion(productDetails.descripcion());
+        product.setStockMinimo(productDetails.stockMinimo());
+        product.setPrecio(productDetails.precio());
+        product.setCategoria(productDetails.categoria());
 
         return productRepository.save(product);
     }
@@ -190,9 +190,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(value = "productosLowStock")
-    public List<Product> obtenerProductosConStockBajo() {
-        return productRepository.findProductsWithLowStock();
+    @Cacheable(value = "productosLowStock", key = "#pageable.pageNumber + '-' + #pageable.pageSize")
+    public Page<Product> obtenerProductosConStockBajo(Pageable pageable) {
+        return productRepository.findProductsWithLowStock(pageable);
     }
 
     @Override

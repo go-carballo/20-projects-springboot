@@ -20,6 +20,16 @@ spring:
 server:
   port: 8080
 
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when_authorized
+
 # OpenAPI / Swagger
 springdoc:
   api-docs:
