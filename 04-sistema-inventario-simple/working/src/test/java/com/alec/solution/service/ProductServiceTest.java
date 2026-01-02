@@ -42,7 +42,7 @@ class ProductServiceTest {
     private MovimientoStockRepository movimientoStockRepository;
 
     @InjectMocks
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
     private Product testProduct;
 
